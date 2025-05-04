@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Flight to Paris</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffc0cb;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      color: #fff;
+      position: relative;
+    }
+
+    .message {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+
+    .flight-sticker {
+      width: 150px;
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+      margin-bottom: 25px;
+    }
+
+    .enter-btn {
+      position: absolute;
+      padding: 12px 24px;
+      font-size: 1.1em;
+      background-color: #fff;
+      color: #ff69b4;
+      border: none;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 20px #ff69b4, 0 0 40px #ff69b4;
+      transition: transform 0.2s ease;
+    }
+
+    .enter-btn:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="message">
+    🎫 Here is your flight to Paris ✨<br>
+    Let's Enjoy our trip, press the Enter button.
+  </div>
+  <!-- Flight sticker image -->
+  <img src="{% static 'images/flightimage.jpg' %}" alt="Flight Sticker" class="flight-sticker" />
+  
+  <!-- Enter Button -->
+  <button class="enter-btn" id="enterBtn">Enter</button>
+
+  <script>
+    const btn = document.getElementById("enterBtn");
+    let clickCount = 0;
+    const maxClicks = 6;
+
+    function moveButton() {
+      const maxX = window.innerWidth - btn.offsetWidth;
+      const maxY = window.innerHeight - btn.offsetHeight;
+      const randomX = Math.floor(Math.random() * maxX);
+      const randomY = Math.floor(Math.random() * maxY);
+      btn.style.left = `${randomX}px`;
+      btn.style.top = `${randomY}px`;
+    }
+
+    btn.addEventListener("click", () => {
+      if (clickCount < maxClicks) {
+        moveButton();
+        clickCount++;
+      } else {
+        window.location.href = "{% url 'third' %}";
+      }
+    });
+
+    // Initialize button center position
+    btn.style.left = "50%";
+    btn.style.top = "75%";
+    btn.style.transform = "translate(-50%, -50%)";
+  </script>
+</body>
+</html>

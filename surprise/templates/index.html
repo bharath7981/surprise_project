@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Surprise</title>
+  <style>
+    body {
+      background-color: #ffc0cb;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      color: #fff;
+    }
+    .message {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+    .letsgobutton {
+      background-color: #fff;
+      color: #ff69b4;
+      font-size: 1.5em;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+    }
+    .letsgobutton:hover {
+      background-color: #ff69b4;
+      color: #fff;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="message">
+    Hey [AKSHAYA]... this one's just for you! 💕
+  </div>
+  <!-- Let's Go Button -->
+  <a href="{% url 'main' %}">
+    <button class="letsgobutton">Let's Go</button>
+  </a>
+</body>
+</html>

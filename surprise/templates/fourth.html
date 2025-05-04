@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exploring Paris</title>
+  <style>
+    body {
+      background-color: #ffe6f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      color: #d63384;
+    }
+
+    .explore-img {
+      width: 70%;
+      max-width: 400px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(255, 105, 180, 0.5);
+      margin-top: 20px;
+    }
+
+    .text {
+      font-size: 2em;
+      margin-top: 20px;
+    }
+
+    .next-button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      background-color: #ff66b2;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(255, 105, 180, 0.6);
+      transition: transform 0.2s;
+    }
+
+    .next-button:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="text">💑 Exploring Paris Together 💖</div>
+  <img src="{% static 'images/exploring_paris.jpg' %}" alt="Exploring Paris" class="explore-img" />
+  
+  <a href="{% url 'fifth' %}">
+    <button class="next-button">Final Surprise 💝</button>
+  </a>
+</body>
+</html>

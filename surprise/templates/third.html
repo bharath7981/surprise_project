@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Travelling to Paris</title>
+  <style>
+    body {
+      background-color: #ffc0cb;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      color: #fff;
+    }
+
+    .message {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .travel-image {
+      width: 45%;
+      max-width: 280px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+    }
+
+    .next-button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: white;
+      color: #ff1493;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1em;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(255, 20, 147, 0.4);
+      transition: transform 0.2s ease;
+    }
+
+    .next-button:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="message">
+    ✈️ You're all set! Let's Explore some World wroom!wroom! 🌍
+  </div>
+  <img src="{% static 'images/image3.jpg' %}" alt="Travelling to Paris" class="travel-image" />
+  <a href="{% url 'fourth' %}">
+    <button class="next-button">Next</button>
+  </a>
+</body>
+</html>

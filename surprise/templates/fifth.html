@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Surprise Message</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffd6e0, #ffe3ec);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      text-align: center;
+      font-family: 'Comic Sans MS', cursive;
+      color: #ff4d88;
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    .message {
+      font-size: 2em;
+      max-width: 90%;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    .surprise-img {
+      margin-top: 20px;
+      width: 80%;
+      max-width: 350px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
+    }
+
+    .hearts {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      transform: rotate(45deg);
+      animation: floatUp 6s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .back-button {
+      margin-top: 30px;
+      padding: 12px 24px;
+      background-color: #ff66b2;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      color: white;
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(255, 105, 180, 0.6);
+    }
+
+    .back-button:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="message">
+    Hey <strong>AKSHAYA</strong>,<br/>
+    This whole journey was made just for you!<br/>
+    Because you deserve smiles, surprises, and a little magic every day. 💖<br/>
+    I hope this made your heart a little happier today. 😊✨
+  </div>
+
+  <img src="{% static 'images/image5.jpg' %}" alt="Surprise Image" class="explore-img" />
+
+  <button class="back-button" onclick="location.href='/'">Back to Start</button>
+
+  <div class="hearts">
+    {% for i in "123456789" %}
+    <div class="heart" style="left: {{ forloop.counter0|add:5|add:10 }}%; animation-delay: {{ forloop.counter0 }}s;"></div>
+    {% endfor %}
+  </div>
+</body>
+</html>
